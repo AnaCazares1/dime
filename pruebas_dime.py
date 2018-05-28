@@ -35,15 +35,15 @@ class TestYTapp(unittest.TestCase):
         self.assertNotEqual(self.video2.Vistas, '10000' )
 
 
-   # def test_modVideo(self):
+    def test_modVideo(self):
 
-    #    print("test_modVideo")
-     #   self.assertTrue(self.sql.ModificarVideo(self.video))
+        print("test_modVideo")
+        self.assertTrue(self.sql.ModificarVideo(self.video))
 
-   # def test_borrar(self):
+    def test_borrar(self):
 
-    #    print("test_borrar")
-     #   self.assertTrue(self.sql.BorrarVideo(5))
+        print("test_borrar")
+        self.assertTrue(self.sql.BorrarVideo(5))
 
    
 
