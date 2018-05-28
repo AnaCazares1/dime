@@ -9,82 +9,56 @@ class TestYTapp(unittest.TestCase):
     def setUp(self):
 
         self.yt = AppYoutube()
-        self.videomock = Mock(Id = 5, Nombre = "Dubstep inspirador", Duracion = "PT4M44S", Canal = "ArturoTheDog",  Fecha= "2015-08-15T16:10:37.000Z", Likes = self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4D").Likes, Vistas = self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4D").Vistas, Descripcion = "Una muy buena canción libre de copyright :D")
+        self.videomock = Mock(Id = 5, Nombre = "MIRANDA.-PERFECTA", Duracion = "PT3M45S", Canal = "Xaxiri Castro",  Fecha= "2008-03-28T21:54:50.000Z", Likes = self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Likes, Vistas = self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Vistas, Descripcion = "BUENA ROLA DE ESTE GRUPO ARGENTINO!!!")
         self.video = Video(self.videomock.Nombre,self.videomock.Duracion,self.videomock.Canal,self.videomock.Fecha,self.videomock.Likes,self.videomock.Vistas,self.videomock.Descripcion)
         self.sql = SQlite()
         self.sql.GuardarVideo(self.video)
 
         ################################
-        self.video1 = Video('La noche',13,'El día', "04 feb 2018", 5000, 10000,' video ')
-        #self.video2 = Video('Video 10.4', 15, 'sup', '25 jul 2016', 10000, 55000, 'Dale like')
-        #self.badurl = url('https://www.youtube.com/watch?v=7IXJb')
-        #self.nourl = url('achettp://yutub.com/olakase')
-        #self.lista = MostrarLista()
-
-
-    def tearDown(self):
-        print("Fin de la prueba")
-
+        self.video2 = Video('video1',12,'El video', "25 feb 2018", 2500, 10000,'video')
+           
     #Hace las pruebas de guardar un video y que todos sus atributos estén almacenados correctamente
     def test_Video(self):
 
         print("test_Video")
-        self.assertEqual(self.video1.Nombre, ('La noche'))
-        self.assertEqual(self.video1.Duracion, 13 )
-        self.assertEqual(self.video1.Canal, 'El día' )
-        self.assertEqual(self.video1.Fecha, "04 feb 2018" )
-        self.assertEqual(self.video1.Likes, 5000 )
-        self.assertEqual(self.video1.Vistas, 10000 )
-        self.assertEqual(self.video1.Descripcion, 'Este video es chido' )
+        self.assertEqual(self.video2.Nombre, ('video1'))
+        self.assertEqual(self.video2.Duracion, 12 )
+        self.assertEqual(self.video2.Canal, 'El video' )
+        self.assertEqual(self.video2.Fecha, "25 feb 2018" )
+        self.assertEqual(self.video2.Likes, 2500 )
+        self.assertEqual(self.video2.Vistas, 10000 )
+        self.assertEqual(self.video2.Descripcion, 'video' )
 
         #Revisando el tipo de dato
-        self.assertNotEqual(self.video1.Duracion, '13')
-        self.assertNotEqual(self.video1.Likes, '5000' )
-        self.assertNotEqual(self.video1.Vistas, '10000' )
+        self.assertNotEqual(self.video2.Duracion, '12')
+        self.assertNotEqual(self.video2.Likes, '2500' )
+        self.assertNotEqual(self.video2.Vistas, '10000' )
 
 
-    def test_guardar(self):
+   # def test_modVideo(self):
 
-        print("test_guardar")
-        self.assertIsInstance(self.sql.GuardarVideo(self.video), Video)
+    #    print("test_modVideo")
+     #   self.assertTrue(self.sql.ModificarVideo(self.video))
 
-    #def test_mostrarLista(self):
+   # def test_borrar(self):
 
-    #    self.assertIsInstance(self.lista, videos)
-    #    #self.assertRaises(SQlite.lista(self.id), 'CHECK: deberia mandar error por psarle un ID')
+    #    print("test_borrar")
+     #   self.assertTrue(self.sql.BorrarVideo(5))
 
-    #def test_mostrarVideo(self):
+   
 
-    #    self.assertIsInstance(self.sql.MostrarVideo(5), Video)
-
-    def test_modVideo(self):
-
-        print("test_modVideo")
-        self.assertTrue(self.sql.ModificarVideo(self.video))
-
-    def test_borrar(self):
-
-        print("test_borrar")
-        self.assertTrue(self.sql.BorrarVideo(5))
-
-    def test_close(self):
-
-        print("test_close")
-        self.assertTrue(self.sql.Close())
-
-    """TEST raul_youtube"""
 
     def test_infoVideo(self):
 
         print("test_infoVideo")
-        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4Dk").Nombre, self.video.Nombre)
-        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4Dk").Duracion, self.video.Duracion)
-        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4Dk").Canal, self.video.Canal)
-        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4Dk").Fecha, self.video.Fecha)
-        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4Dk").Likes, self.video.Likes)
-        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4Dk").Vistas, self.video.Vistas)
-        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=TwsAH7Fw4Dk").Descripcion, self.video.Descripcion)
-        #self.assertEqual(self.yt.InfoVideo("achettp://yutub.com/olakase"), UnboundLocalError)
+        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Nombre, self.video.Nombre)
+        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Duracion, self.video.Duracion)
+        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Canal, self.video.Canal)
+        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Fecha, self.video.Fecha)
+        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Likes, self.video.Likes)
+        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Vistas, self.video.Vistas)
+        self.assertEqual(self.yt.InfoVideo("https://www.youtube.com/watch?v=dDmhThqxDw0").Descripcion, self.video.Descripcion)
+       
 
 if __name__ == '__main__':
     unittest.main()
